@@ -143,3 +143,17 @@ if submitted:
 
     st.subheader("Here is your Trip Plan", anchor=False, divider="rainbow")
     st.markdown(result)
+    if result:
+        st.button("Copy Trip Plan", on_click=st.session_state.setdefault, args=("copy_trip_plan", result))
+        st.code(result, language="markdown")
+        st.write(
+            """
+            <script>
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text);
+            }
+            </script>
+            <button onclick="copyToClipboard(`""" + result.replace("`", "\\`") + """`)">Copy to Clipboard</button>
+            """,
+            unsafe_allow_html=True
+        )

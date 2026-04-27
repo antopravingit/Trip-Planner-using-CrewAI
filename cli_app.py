@@ -6,7 +6,7 @@ import argparse
 from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
 import os
-
+import dotenv
 
 class TripCrew:
     def __init__(self, origin, cities, date_range, interests):
